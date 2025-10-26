@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quantum Race: Constructor Standings</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the F1 theme */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Orbitron:wght@400..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark GitHub-like background */
+            color: #e5e7eb;
+        }
+        .header-text {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .card-glow {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card-glow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+        }
+        .rank-badge {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        /* Gradient for the top rank bar */
+        .rank-1-bar {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, #00ffff 100%);
+        }
+        /* New style for mobile ticker label */
+        .mobile-label {
+            @apply text-sm font-bold block md:hidden mb-1;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10 pt-4 pb-6 border-b border-cyan-700/50">
+            <h1 class="header-text text-4xl sm:text-6xl font-extrabold text-cyan-300 tracking-wider mb-2">
+                THE QUANTUM RACE
+            </h1>
+            <p class="text-xl sm:text-2xl font-light text-gray-400">
+                2025 Constructor Standings: Leading Quantum Technologies
+            </p>
+        </header>
+
+        <!-- Quantum Race List Header (Desktop View) -->
+        <!-- Adjusted to md:grid-cols-7 for new Ticker column -->
+        <div class="grid grid-cols-1 md:grid-cols-7 gap-2 text-sm font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-700 pb-2 mb-4 hidden md:grid">
+            <div class="col-span-1 pl-4">Rank</div>
+            <div class="col-span-2">Constructor (Company)</div>
+            <div class="col-span-1 text-center">Ticker</div>
+            <div class="col-span-1">Architecture</div>
+            <div class="col-span-2 text-right">Key Metric / Latest Hardware</div>
+        </div>
+
+        <!-- Quantum Race List -->
+        <div class="space-y-6">
+            
+            <!-- Team 1: IBM -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 rank-1-bar">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-cyan-400 mr-4">1</span>
+                    <span class="text-xs font-bold text-cyan-400 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">IBM Quantum</p>
+                    <p class="text-sm text-gray-400">Poughkeepsie, NY, USA</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">IBM</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-purple-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-purple-400">Superconducting</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">1,121 Physical Qubits</p>
+                    <p class="text-sm text-gray-400">Condor Processor (2023)</p>
+                </div>
+            </div>
+
+            <!-- Team 2: Atom Computing -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 border-yellow-400">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-yellow-400 mr-4">2</span>
+                    <span class="text-xs font-bold text-yellow-400 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">Atom Computing</p>
+                    <p class="text-sm text-gray-400">Berkeley, CA, USA</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">N/A</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-orange-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-orange-400">Neutral Atoms</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">1,180 Physical Qubits</p>
+                    <p class="text-sm text-gray-400">High-Count Lattice (2023)</p>
+                </div>
+            </div>
+
+            <!-- Team 3: IonQ -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 border-green-500">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-green-500 mr-4">3</span>
+                    <span class="text-xs font-bold text-green-500 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">IonQ</p>
+                    <p class="text-sm text-gray-400">College Park, MD, USA</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">IONQ</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-indigo-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-indigo-400">Trapped Ion</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">99.99% 2-Qubit Fidelity</p>
+                    <p class="text-sm text-gray-400">World Record Performance (2025)</p>
+                </div>
+            </div>
+
+            <!-- Team 4: D-Wave Systems -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 border-red-500">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-red-500 mr-4">4</span>
+                    <span class="text-xs font-bold text-red-500 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">D-Wave Systems</p>
+                    <p class="text-sm text-gray-400">Burnaby, BC, Canada</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">QBTS</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-pink-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-pink-400">Quantum Annealing</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">4,400+ Qubits</p>
+                    <p class="text-sm text-gray-400">Advantage2 System (Optimization Focus)</p>
+                </div>
+            </div>
+            
+            <!-- Team 5: Google Quantum AI -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 border-amber-500">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-amber-500 mr-4">5</span>
+                    <span class="text-xs font-bold text-amber-500 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">Google Quantum AI</p>
+                    <p class="text-sm text-gray-400">Santa Barbara, CA, USA</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">GOOGL</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-purple-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-purple-400">Superconducting</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">13,000x Speedup Claim</p>
+                    <p class="text-sm text-gray-400">Willow Processor (Quantum Echoes)</p>
+                </div>
+            </div>
+
+            <!-- Team 6: Quantinuum -->
+            <div class="card-glow bg-gray-800/70 rounded-xl p-4 flex flex-col md:flex-row items-center border-l-4 border-blue-400">
+                <div class="flex-shrink-0 flex items-center justify-center w-full md:w-16 mb-3 md:mb-0 md:pl-4">
+                    <span class="rank-badge text-6xl md:text-5xl font-black text-blue-400 mr-4">6</span>
+                    <span class="text-xs font-bold text-blue-400 block md:hidden">RANK</span>
+                </div>
+                <!-- Company Info (Approx w-2/5) -->
+                <div class="w-full md:flex-1 md:w-40 min-w-40">
+                    <p class="text-2xl font-bold header-text text-white">Quantinuum</p>
+                    <p class="text-sm text-gray-400">Broomfield, CO, USA</p>
+                </div>
+                <!-- Ticker (Approx w-1/6) -->
+                <div class="w-full md:w-20 mt-3 md:mt-0 text-left md:text-center">
+                    <p class="mobile-label text-teal-400">Ticker</p>
+                    <span class="text-xl font-bold text-teal-400">N/A</span>
+                </div>
+                <!-- Architecture (Approx w-1/6) -->
+                <div class="w-full md:w-32 mt-3 md:mt-0">
+                    <p class="mobile-label text-indigo-400 mt-3">Architecture</p>
+                    <span class="text-lg font-medium text-indigo-400">Trapped Ion</span>
+                </div>
+                <!-- Key Metric (Approx w-2/5) -->
+                <div class="w-full md:flex-1 mt-3 md:mt-0 text-left md:text-right">
+                    <p class="text-xl font-bold text-white">AQ36 (Algorithmic Qubits)</p>
+                    <p class="text-sm text-gray-400">System Model H2</p>
+                </div>
+            </div>
+
+            <!-- Race Notes/Disclaimer -->
+            <div class="mt-12 p-4 bg-gray-700/50 rounded-lg text-sm text-gray-400 border border-gray-600">
+                <p class="font-semibold text-white mb-2">Race Notes & Architectures</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li><strong class="text-teal-300">Stock Ticker Note:</strong> Tickers are provided for publicly traded companies (**IBM**, **IONQ**, **QBTS**). **GOOGL** represents Google's parent company, Alphabet Inc. Companies marked **N/A** (Atom Computing, Quantinuum) are currently privately held.</li>
+                    <li><strong class="text-purple-300">Superconducting:</strong> The most mature approach, favored by IBM and Google. Requires extreme cooling.</li>
+                    <li><strong class="text-indigo-300">Trapped Ion:</strong> Known for high qubit fidelity (quality), used by IonQ and Quantinuum.</li>
+                    <li><strong class="text-orange-300">Neutral Atoms:</strong> High scalability and large arrays, demonstrated by Atom Computing.</li>
+                    <li><strong class="text-pink-300">Quantum Annealing:</strong> Specializes in optimization problems, pioneered by D-Wave.</li>
+                    <li>**Note:** Qubit counts are highly variable across architectures. This ranking is symbolic, prioritizing a mix of raw count and leading performance claims reported in late 2024/2025.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-10 py-4 border-t border-cyan-700/50 text-gray-500 text-xs">
+            The Quantum Race: Data compiled from public company announcements and industry reports, Oct 2025.
+        </footer>
+
+    </div>
+
+</body>
+</html>
