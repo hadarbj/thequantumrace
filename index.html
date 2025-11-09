@@ -27,19 +27,32 @@
           </header>
 
           <main>
+            <!-- Column Headers -->
+            <div class="hidden sm:flex items-center space-x-4 px-3 sm:px-4 mb-2">
+              <!-- Spacers for rank and icon -->
+              <div class="w-8 shrink-0"></div>
+              <div class="w-8 shrink-0"></div>
+
+              <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center text-zinc-400 text-xs font-bold uppercase tracking-wider">
+                <div class="sm:col-span-1 text-left">Constructor</div>
+                <div class="sm:col-span-1 text-center">Technology</div>
+                <div class="sm:col-span-1 text-center">DARPA QBI</div>
+                <div class="sm:col-span-1 text-center">Stock</div>
+                <div class="sm:col-span-1 text-center">QTUM %</div>
+                <div class="sm:col-span-1 text-right">Key Achievement</div>
+              </div>
+            </div>
             <div class="space-y-3">
               <!-- Company Card: Google Quantum AI -->
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-amber-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">1</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-amber-400">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-amber-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Google Quantum AI <span class="text-sm">🇺🇸</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Superconducting</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-cyan-400">Stage A</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">GOOGL</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.8% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Willow-class Processors</p><p class="text-xs text-zinc-500">Demonstrated scalable quantum error correction</p></div>
@@ -49,14 +62,12 @@
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-slate-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">2</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-slate-400">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-slate-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">IBM Quantum <span class="text-sm">🇺🇸</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Superconducting</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">IBM</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">2.1% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">133 Qubits (Heron)</p><p class="text-xs text-zinc-500">New era of performance with Heron processor</p></div>
@@ -66,14 +77,12 @@
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-orange-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">3</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-orange-500">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-orange-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Quantinuum <span class="text-sm">🇬🇧</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Trapped Ion</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">HON</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.5% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">32 Qubits (H2 'Helios')</p><p class="text-xs text-zinc-500">Demonstrated logical qubits outperforming physical qubits</p></div>
@@ -83,31 +92,57 @@
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-purple-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">4</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-purple-500">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-purple-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">IonQ <span class="text-sm">🇺🇸</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Trapped Ion</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">IONQ</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">7.2% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">36 Algorithmic Qubits (Forte)</p><p class="text-xs text-zinc-500">High-Fidelity Trapped-Ion Systems</p></div>
                 </div>
               </div>
-              <!-- Company Card: D-Wave Systems -->
-              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-sky-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <!-- Company Card: Microsoft Quantum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-blue-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">5</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-sky-400">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-blue-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Microsoft Quantum <span class="text-sm">🇺🇸</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Topological</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-green-400">Stage C</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">MSFT</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.9% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Topological Qubits (In Dev)</p><p class="text-xs text-zinc-500">Developing fault-tolerant topological qubits</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Atom Computing -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-indigo-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">6</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-indigo-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Atom Computing <span class="text-sm">🇺🇸</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Neutral Atom</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">1225 Qubits (Phoenix)</p><p class="text-xs text-zinc-500">Leading neutral-atom quantum systems</p></div>
+                </div>
+              </div>
+              <!-- Company Card: D-Wave Systems -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-sky-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">7</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-sky-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">D-Wave Systems <span class="text-sm">🇨🇦</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Quantum Annealing</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-zinc-500">-</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">QBTS</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">5.8% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">5000+ Qubits</p><p class="text-xs text-zinc-500">Commercial Quantum Annealing Systems</p></div>
@@ -115,16 +150,14 @@
               </div>
               <!-- Company Card: Rigetti Computing -->
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-emerald-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">6</div>
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">8</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-emerald-400">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-emerald-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Rigetti Computing <span class="text-sm">🇺🇸</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Superconducting</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-cyan-400">Stage A</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">RGTI</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">6.5% <span class="text-xs text-zinc-500">QTUM</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">84 Qubits (Ankaa-2)</p><p class="text-xs text-zinc-500">Hybrid Quantum/Classical Approach</p></div>
@@ -132,16 +165,14 @@
               </div>
               <!-- Company Card: PsiQuantum -->
               <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-rose-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">7</div>
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">9</div>
                 <div class="flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-rose-500">
-                    <g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g>
-                    <g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g>
-                  </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-rose-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
                 </div>
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-4 items-center">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
                   <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">PsiQuantum <span class="text-sm">🇺🇸</span></p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-white">Photonic</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-green-400">Stage C</p></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
                   <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
                   <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Target: 1M Qubits</p><p class="text-xs text-zinc-500">Fault-Tolerant Photonic Architecture</p></div>
