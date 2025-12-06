@@ -1,0 +1,5 @@
+{
+  "name": "The Quantum Race",
+  "description": "A dynamic leaderboard displaying the 2025 constructor standings for leading quantum computing companies, built with React and Tailwind CSS.",
+  "requestFramePermissions": []
+}

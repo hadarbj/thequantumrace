@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Quantum Race</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+<style>
+    .ball-serving .ball {
+        animation: serve-arc 2s ease-in-out forwards;
+    }
+    .ball-serving .shadow {
+        animation: serve-shadow 2s ease-in-out forwards;
+    }
+    .ball-serving .ball {
+        filter: blur(1.5px);
+    }
+
+    @keyframes serve-arc {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { 
+            transform: translate(60px, -30px) scale(1.2); 
+            animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); 
+        }
+        99% {
+            transform: translate(120px, 0) scale(1);
+            opacity: 1;
+        }
+        100% {
+             transform: translate(120px, 0) scale(1);
+             opacity: 0;
+        }
+    }
+
+    @keyframes serve-shadow {
+        0% { transform: scale(1) translateX(0); opacity: 0.5; }
+        50% { 
+            transform: scale(0.6) translateX(60px); opacity: 0.3; 
+            animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); 
+        }
+        99% {
+            transform: scale(1) translateX(120px); opacity: 0.5;
+        }
+        100% {
+            transform: scale(1) translateX(120px); opacity: 0;
+        }
+    }
+</style>
+</head>
+  <body class="bg-zinc-900">
+    <div id="root">
+      <div class="min-h-screen bg-zinc-900 text-gray-100 font-sans p-4 sm:p-6 lg:p-8">
+        <div class="max-w-4xl mx-auto">
+          <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">
+              The Quantum Race
+            </h1>
+            <p class="text-lg sm:text-xl text-zinc-400 mt-2">2025 Constructor Standings</p>
+          </header>
+
+          <main>
+            <!-- Column Headers -->
+            <div class="hidden sm:flex items-center space-x-4 px-3 sm:px-4 mb-2">
+              <!-- Spacers for rank and icon -->
+              <div class="w-8 shrink-0"></div>
+              <div class="w-8 shrink-0"></div>
+
+              <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center text-zinc-400 text-xs font-bold uppercase tracking-wider">
+                <div class="sm:col-span-1 text-left">Constructor</div>
+                <div class="sm:col-span-1 text-center">Technology</div>
+                <div class="sm:col-span-1 text-center">DARPA QBI</div>
+                <div class="sm:col-span-1 text-center">Stock</div>
+                <div class="sm:col-span-1 text-center">QTUM %</div>
+                <div class="sm:col-span-1 text-right">Key Achievement</div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <!-- Company Card: Quantinuum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-orange-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">1</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-orange-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Quantinuum <span class="text-sm">🇬🇧</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Trapped Ion</p>
+                    <div title="" class="flex justify-start sm:justify-center h-4 items-center"></div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">HON</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.5% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">96 Qubits (Helios)</p><p class="text-xs text-zinc-500">Produced 96 fully error-corrected Logical Qubits at an extremely efficient 2:1 encoding rate</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Google Quantum AI -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-amber-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">2</div>
+                <div class="flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-amber-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Google Quantum AI <span class="text-sm">🇺🇸</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Superconducting</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-cyan-400">Stage A</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">GOOGL</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.8% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">105 Qubits (Willow)</p><p class="text-xs text-zinc-500">Exponential Error Suppression</p></div>
+                </div>
+              </div>
+              <!-- Company Card: IBM Quantum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-slate-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">3</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-slate-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">IBM Quantum <span class="text-sm">🇺🇸</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Superconducting</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">IBM</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">2.1% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">120 Qubits (Nighthawk)</p><p class="text-xs text-zinc-500">High-coherence processor for early error mitigation</p></div>
+                </div>
+              </div>
+              <!-- Company Card: IonQ -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-purple-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">4</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-purple-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">IonQ <span class="text-sm">🇺🇸</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Trapped Ion</p>
+                    <div title="" class="flex justify-start sm:justify-center h-4 items-center"></div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">IONQ</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">7.2% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">36 Algorithmic Qubits (Forte)</p><p class="text-xs text-zinc-500">High-Fidelity Trapped-Ion Systems</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Microsoft Quantum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-blue-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">5</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-blue-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Microsoft Quantum <span class="text-sm">🇺🇸</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Topological</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-green-400">Stage C</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">MSFT</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">1.9% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Topological Qubits (In Dev)</p><p class="text-xs text-zinc-500">Developing fault-tolerant topological qubits</p></div>
+                </div>
+              </div>
+               <!-- Company Card: Xanadu -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-teal-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">6</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-teal-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Xanadu <span class="text-sm">🇨🇦</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Photonic</p>
+                    <div title="" class="flex justify-start sm:justify-center h-4 items-center"></div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Borealis QPU</p><p class="text-xs text-zinc-500">Achieved quantum computational advantage</p></div>
+                </div>
+              </div>
+              <!-- Company Card: PsiQuantum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-rose-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">7</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-rose-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">PsiQuantum <span class="text-sm">🇺🇸</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Photonic</p>
+                    <div title="" class="flex justify-start sm:justify-center h-4 items-center"></div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-green-400">Stage C</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Target: 1M Qubits</p><p class="text-xs text-zinc-500">Fault-Tolerant Photonic Architecture</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Atom Computing -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-indigo-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">8</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-indigo-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Atom Computing <span class="text-sm">🇺🇸</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Neutral Atom</p>
+                    <div title="" class="flex justify-start sm:justify-center h-4 items-center"></div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">1225 Qubits (Phoenix)</p><p class="text-xs text-zinc-500">Leading neutral-atom quantum systems</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Rigetti Computing -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-emerald-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">9</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-emerald-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Rigetti Computing <span class="text-sm">🇺🇸</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Superconducting</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-cyan-400">Stage A</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">RGTI</span><p class="text-xs text-zinc-500 mt-1">NASDAQ</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">6.5% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">84 Qubits (Ankaa-2)</p><p class="text-xs text-zinc-500">Hybrid Quantum/Classical Approach</p></div>
+                </div>
+              </div>
+              <!-- Company Card: D-Wave Systems -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-sky-400 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">10</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-sky-400"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">D-Wave Systems <span class="text-sm">🇨🇦</span></p></div>
+                   <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Quantum Annealing</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-zinc-500">-</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><div><span class="font-mono text-base sm:text-lg bg-zinc-700 text-cyan-400 px-2 py-1 rounded">QBTS</span><p class="text-xs text-zinc-500 mt-1">NYSE</p></div></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-mono text-sm sm:text-base text-white">5.8% <span class="text-xs text-zinc-500">QTUM</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">5000+ Qubits</p><p class="text-xs text-zinc-500">Commercial Quantum Annealing Systems</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Diraq -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-lime-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">11</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-lime-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Diraq <span class="text-sm">🇦🇺</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Silicon Spin Qubits</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-yellow-400">Stage B</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">CMOS-based Qubits</p><p class="text-xs text-zinc-500">High-fidelity spin qubits in silicon</p></div>
+                </div>
+              </div>
+              <!-- Company Card: Origin Quantum -->
+              <div class="bg-zinc-800/50 backdrop-blur-sm p-3 sm:p-4 rounded-lg flex items-center space-x-4 border-l-4 border-l-pink-500 hover:bg-zinc-700/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div class="text-2xl sm:text-3xl font-bold text-zinc-500 w-8 text-center">12</div>
+                <div class="flex-shrink-0">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-pink-500"><g fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0 -16 8 8 0 0 1 0 16z"></path><circle cx="12" cy="5" r="1.5"></circle><circle cx="12" cy="19" r="1.5"></circle></g><g fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="12" rx="8" ry="3"></ellipse><ellipse cx="12" cy="12" rx="3" ry="8"></ellipse></g></svg>
+                </div>
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-6 gap-2 sm:gap-4 items-center">
+                  <div class="sm:col-span-1"><p class="font-bold text-base sm:text-lg text-white">Origin Quantum <span class="text-sm">🇨🇳</span></p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center">
+                    <p class="font-semibold text-sm sm:text-base text-white">Superconducting</p>
+                    <div title="Requires extreme cooling" class="flex justify-start sm:justify-center h-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><p class="font-semibold text-sm sm:text-base text-zinc-500">-</p></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">Private</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-center"><span class="text-xs sm:text-sm text-zinc-500">-</span></div>
+                  <div class="sm:col-span-1 text-left sm:text-right"><p class="font-mono text-sm sm:text-base text-cyan-300">Wukong Processor</p><p class="text-xs text-zinc-500">China's first practical quantum computer</p></div>
+                </div>
+              </div>
+            </div>
+          </main>
+          
+          <div class="flex items-center justify-center my-8 gap-x-2 text-sm text-zinc-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+            <span>Indicates technologies that require extreme cryogenic cooling.</span>
+          </div>
+
+          <section class="mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-zinc-300">Technology Groups</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-zinc-400 mb-4 border-b-2 border-zinc-700 pb-2">Solid-State Qubits</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Superconducting</h4>
+                                <div title="Requires extreme cooling">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                                </div>
+                            </div>
+                            <p class="text-sm text-zinc-400">Uses circuits of superconducting materials cooled to near-absolute zero to create qubits. This is a leading approach known for fast gate operations but is sensitive to environmental noise.</p>
+                        </div>
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Topological</h4>
+                                <div title="Requires extreme cooling">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                                </div>
+                            </div>
+                            <p class="text-sm text-zinc-400">A theoretical approach that encodes quantum information in the properties of quasiparticles. It promises to be inherently robust against errors but is extremely challenging to realize experimentally.</p>
+                        </div>
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Silicon Spin Qubits</h4>
+                                <div title="Requires extreme cooling">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                                </div>
+                            </div>
+                            <p class="text-sm text-zinc-400">Encodes quantum information in the spin of an electron confined in a silicon-based structure, similar to a traditional transistor. This approach leverages the mature semiconductor manufacturing industry for scalability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-zinc-400 mb-4 border-b-2 border-zinc-700 pb-2">Atomic & Ion Systems</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Trapped Ion</h4>
+                            </div>
+                            <p class="text-sm text-zinc-400">Relies on individual charged atoms (ions) held in place by electromagnetic fields. These qubits are very stable and have high fidelity, but gate operations are typically slower than superconducting qubits.</p>
+                        </div>
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Neutral Atom</h4>
+                            </div>
+                            <p class="text-sm text-zinc-400">Utilizes individual, uncharged atoms held by lasers as qubits. This approach allows for large numbers of qubits and strong interactions, making it a highly scalable and promising platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-zinc-400 mb-4 border-b-2 border-zinc-700 pb-2">Light-Based</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Photonic</h4>
+                            </div>
+                            <p class="text-sm text-zinc-400">Uses individual particles of light (photons) as qubits. These qubits can operate at room temperature and are ideal for networking, but creating reliable two-qubit gates is difficult.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-zinc-400 mb-4 border-b-2 border-zinc-700 pb-2">Specialized Computing Model</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+                            <div class="flex items-center mb-2">
+                                <h4 class="font-bold text-lg text-cyan-400">Quantum Annealing</h4>
+                                 <div title="Requires extreme cooling">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.708-.708L7.5 12.793V8.5a.5.5 0 0 1 1 0v4.293l1.354 1.353a.5.5 0 0 1-.708.708L8.5 14.207V15.5a.5.5 0 0 1-.5.5zM8 0a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 1 1 .708.708L8.5 3.207V7.5a.5.5 0 0 1-1 0V3.207L6.146 1.854a.5.5 0 1 1 .708-.708L7.5 1.793V.5A.5.5 0 0 1 8 0zM12.793 7.5l1.353-1.354a.5.5 0 0 1 .708.708L14.207 8.5H15.5a.5.5 0 0 1 0 1h-1.293l.647.646a.5.5 0 0 1-.708.708L12.793 8.5H8.5a.5.5 0 0 1 0 -1h4.293zM3.207 7.5l-1.353 1.354a.5.5 0 0 1-.708-.708L1.793 6.5H.5a.5.5 0 0 1 0 -1h1.293l-.647-.646a.5.5 0 1 1 .708-.708L3.207 6.5H7.5a.5.5 0 0 1 0 1H3.207z"></path></svg>
+                                </div>
+                            </div>
+                            <p class="text-sm text-zinc-400">A specialized type of quantum computing designed specifically for optimization problems. Instead of using logic gates, it finds the lowest energy state of a system, which corresponds to the optimal solution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+
+          <section class="mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-4 text-zinc-300">
+              About DARPA QBI Stages
+            </h2>
+            <p class="text-zinc-400 max-w-3xl mx-auto text-center mb-6">
+              The DARPA Quantum Benchmarking Initiative (QBI) provides a framework for evaluating the performance of quantum computers on real-world problems.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-cyan-400 mb-1">Stage A</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">Concept</p>
+                <p class="text-sm text-zinc-400">Define a plausible technical concept for a utility-scale quantum computer.</p>
+              </div>
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-yellow-400 mb-1">Stage B</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">R&amp;D Plan</p>
+                <p class="text-sm text-zinc-400">Develop a detailed research and development roadmap.</p>
+              </div>
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-green-400 mb-1">Stage C</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">Verification</p>
+                <p class="text-sm text-zinc-400">Independent government verification and validation of the constructed hardware.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-zinc-300">
+              Key Achievement Highlights
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-orange-500 mb-1">#1 Quantinuum</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">High-Fidelity Logical Qubits (Helios)</p>
+                <p class="text-sm text-zinc-400">Successfully demonstrated 48 fully error-corrected logical qubits at a highly efficient 2:1 encoding rate, leading the industry in qubit quality and reliability.</p>
+              </div>
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-amber-400 mb-1">#2 Google Quantum AI</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">Exponential Error Suppression (Willow)</p>
+                <p class="text-sm text-zinc-400">Provided the first experimental proof that increasing the size of a surface code qubit exponentially reduces the error rate as predicted by theory.</p>
+              </div>
+              <div class="p-4 bg-zinc-800/50 border border-zinc-700/50 rounded-lg">
+                <h3 class="font-bold text-lg text-slate-400 mb-1">#3 IBM Quantum</h3>
+                <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-2">Hardware Scaling and QEC Architecture</p>
+                <p class="text-sm text-zinc-400">Launching advanced processors like Nighthawk (high utility) and Loon (fault-tolerant blueprint), alongside the demonstration of ultra-low latency real-time error decoding.</p>
+              </div>
+            </div>
+          </section>
+
+          <footer class="text-center mt-12 text-zinc-500 text-sm">
+            <p>&copy; 2025 Quantum Race Leaderboard. Data is illustrative.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
